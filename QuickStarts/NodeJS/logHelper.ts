@@ -7,7 +7,7 @@ async function log<T>(actionName: string, request: Promise<T>): Promise<Awaited<
   return response;
 }
 
-function logToken(token) {
+function logToken(token: any) {
   console.log('Get token successfully');
   console.log(token);
   console.log('*'.repeat(80));

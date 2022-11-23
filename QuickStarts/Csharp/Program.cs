@@ -87,7 +87,8 @@ namespace MSGraphPagesAPI
     private static JObject ModifyPage(JObject page)
     {
       var newPage = new JObject(page);
-      // newPage["name"] = "whateveryouwhat";
+      // Add your code here to modify the page: e.g.: 
+      // newPage["title"] = "New Title";
       return newPage;
     }
   }

@@ -26,9 +26,11 @@ namespace MSGraphPagesAPI
     public string Title { get; set; }
 
     public string Name { get; set; }
+
     public string WebUrl { get; set; }
 
     public string ID { get; set; }
+
     public string LastModifiedDateTime { get; set; }
 
     public PageLayoutType? PageLayout { get; set; }
@@ -40,6 +42,7 @@ namespace MSGraphPagesAPI
     public PagePromotionType? PromotionKind { get; set; }
 
     public bool? ShowComments { get; set; }
+
     public bool? ShowRecommendedPages { get; set; }
   }
 

@@ -1,4 +1,5 @@
-import fetch  from 'node-fetch';
+import fetch from 'node-fetch';
+import { IConfig } from 'config';
 
 const baseUrl = "https://graph.microsoft.com/beta/sites";
 
@@ -35,7 +36,7 @@ export default class GraphPagesAPI {
     access_token?: string;
   };
 
-  constructor(config) {
+  constructor(config: IConfig) {
     this.appId = config.appId;
     this.appSecret = config.appSecret;
     this.tenantId = config.tenantId;
@@ -48,6 +49,14 @@ export default class GraphPagesAPI {
 
   setToken = (token: string) => {
     this.token.access_token = token;
+  }
+
+  getHeader = () => {
+    return {
+      'Content-Type': 'application/json',
+      Accept: 'application/json;odata.metadata=none',
+      Authorization: `Bearer ${this.token.access_token}`,
+    }
   }
 
   /**
@@ -106,11 +115,7 @@ export default class GraphPagesAPI {
     const url = `${baseUrl}/${siteId}/pages/${pageId}?expand=canvasLayout`;
     const options = {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json;odata.metadata=none',
-        Authorization: `Bearer ${this.token.access_token}`,
-      },
+      headers: this.getHeader(),
     };
     const res = await fetch(url, options);
     if (res.status !== HTTP_CODE.SUCCESS) {
@@ -132,11 +137,7 @@ export default class GraphPagesAPI {
     const options = {
       method: 'POST',
       body: JSON.stringify(pagePayload),
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json;odata.metadata=none',
-        Authorization: `Bearer ${this.token.access_token}`,
-      },
+      headers: this.getHeader(),
     };
     const res = await fetch(url, options);
     if (res.status !== HTTP_CODE.CREATED) {
@@ -157,11 +158,7 @@ export default class GraphPagesAPI {
     const url = `${baseUrl}/${siteId}/pages/${pageId}/publish`;
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json;odata.metadata=none',
-        Authorization: `Bearer ${this.token.access_token}`,
-      },
+      headers: this.getHeader(),
     };
     const res = await fetch(url, options);
     if (res.status !== HTTP_CODE.NO_CONTENT) {
@@ -180,11 +177,7 @@ export default class GraphPagesAPI {
     const url = `${baseUrl}/${siteId}/pages/${pageId}`;
     const options = {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json;odata.metadata=none',
-        Authorization: `Bearer ${this.token.access_token}`,
-      },
+      headers: this.getHeader(),
     };
     const res = await fetch(url, options);
     if (res.status !== HTTP_CODE.NO_CONTENT) {
@@ -205,11 +198,7 @@ export default class GraphPagesAPI {
     const options = {
       method: 'PATCH',
       body: JSON.stringify(pagePayload),
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json;odata.metadata=none',
-        Authorization: `Bearer ${this.token.access_token}`,
-      },
+      headers: this.getHeader(),
     };
     const res = await fetch(url, options);
     if (res.status !== HTTP_CODE.SUCCESS) {
