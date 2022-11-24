@@ -24,7 +24,7 @@ This repo is intended to provide you an example of how various functionalities o
 
 These samples are available in different programming languages / scripts / formats so as to meet the needs for different developer audiences. 
 
-We have samples in the following languages for Microsoft Graph SharePoint Pages API with respective repository locations, links to file issues to track improvements scoped to a repository and respective blogpost and documentation links as applicable.
+We have samples in the following languages for Microsoft Graph SharePoint Pages API with respective repository locations:
 
 | **Language**   | **Repo** | 
 |:---------------|:--------|
