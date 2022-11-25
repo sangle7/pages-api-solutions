@@ -7,7 +7,7 @@
     "start": "npx ts-node app.ts"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.1"
   },

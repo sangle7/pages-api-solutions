@@ -49,6 +49,9 @@ namespace MSGraphPagesAPI
         SitePage createdPage = await sitePagesController.CreatePage(siteId, newPage); ;
         Console.WriteLine($"Create page (URL: {createdPage.WebUrl}, ID: {createdPage.ID}) in site ({siteId}) success!");
         Console.WriteLine("******************************************");
+        await sitePagesController.PublishPage(siteId, createdPage.ID); ;
+        Console.WriteLine($"Publish page (URL: {createdPage.WebUrl}, ID: {createdPage.ID}) success!");
+        Console.WriteLine("******************************************");
       }
     }
 

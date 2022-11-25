@@ -74,7 +74,7 @@ namespace MSGraphPagesAPI
       return JObject.Parse(json);
     }
 
-    public async Task<string> PublichPage(string siteId, string pageId)
+    public async Task<void> PublishPage(string siteId, string pageId)
     {
       var token = await GetToken();
 
@@ -95,9 +95,7 @@ namespace MSGraphPagesAPI
         throw new WebException("Error Calling the Graph API: \n" + JsonConvert.SerializeObject(formatted, Formatting.Indented));
       }
 
-      string json = await response.Content.ReadAsStringAsync();
-
-      return json;
+      await response.Content.ReadAsStringAsync();
     }
 
     public async Task<string> DeletePage(string siteId, string pageId)
