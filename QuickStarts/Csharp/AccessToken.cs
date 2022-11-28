@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MSGraphPagesAPI
+namespace MSGraphPagesAPIExample
 {
     //Access token class to authenticate and obtain AAD Token for future calls
     public class AccessToken

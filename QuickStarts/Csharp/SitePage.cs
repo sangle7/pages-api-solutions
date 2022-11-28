@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MSGraphPagesAPI
+namespace MSGraphPagesAPIExample
 {
   public class SitePage
   {

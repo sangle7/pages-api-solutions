@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MSGraphPagesAPI
+namespace MSGraphPagesAPIExample
 {
   class Program
   {
@@ -21,10 +21,10 @@ namespace MSGraphPagesAPI
       // Uncomment the code below to Run sample scenarios
 
       // Scenario #1: Copy a page to multiple sites
-      // string sourceSiteId = "<enter your source site Id here>";
-      // string sourcePageId = "<enter your source page Id here>";
-      // string[] targetSiteIds = new string[] { "<enter your target site Id here>" };
-      // await CopyPageToMultipleSites(sourceSiteId, sourcePageId, targetSiteIds);
+      string sourceSiteId = "<enter your source site Id here>";
+      string sourcePageId = "<enter your source page Id here>";
+      string[] targetSiteIds = new string[] { "<enter your target site Id here>" };
+      await CopyPageToMultipleSites(sourceSiteId, sourcePageId, targetSiteIds);
 
       // Scenario 2: Delete pages before a target date
       // string siteId = "<enter your site Id here>";   
