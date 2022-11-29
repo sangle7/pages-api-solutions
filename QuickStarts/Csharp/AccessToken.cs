@@ -7,9 +7,6 @@ namespace MSGraphPagesAPIExample
     //Access token class to authenticate and obtain AAD Token for future calls
     public class AccessToken
     {
-        static ClientCredential credential;
-        static AuthenticationContext authContext;
-
         //enter your tenantId, app/client Id, and app/client secret
         static readonly string tenantId = "<enter your tenant Id here>";
         static readonly string appId = "<enter your app Id here>";
@@ -23,9 +20,9 @@ namespace MSGraphPagesAPIExample
         //create GET request to retrieve access token
         public async Task<AuthenticationResult> GetToken()
         {
-            authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
+            var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
 
-            credential = new ClientCredential(appId, appSecret);
+            var credential = new ClientCredential(appId, appSecret);
 
             var GraphAAD_URL = string.Format("https://graph.microsoft.com/");
 

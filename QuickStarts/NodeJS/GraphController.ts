@@ -47,10 +47,6 @@ export default class GraphPagesAPI {
     this.token = token;
   }
 
-  setToken = (token: string) => {
-    this.token.access_token = token;
-  }
-
   getHeader = () => {
     return {
       'Content-Type': 'application/json',
