@@ -34,7 +34,7 @@ static readonly string tenantId = "<enter your tenant Id here>";
 static readonly string appId = "<enter your app Id here>";
 static readonly string appSecret = "<enter your app secret here>";
 ```
-Once changes are complete, save the file. After you've completed these steps and have received admin consent for your app, you'll be able to run the app.ts sample as covered below.
+Once changes are complete, save the file. After you've completed these steps and have received admin consent for your app, you'll be able to run the Main.cs sample as covered below.
 
 ### Notes:
 - All code that interacts with the API is contained inside SitePagesController.cs
