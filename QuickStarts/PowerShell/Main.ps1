@@ -2,6 +2,10 @@
 
 # Uncomment to run the samples
 
+# Get Token
+
+Get-AuthToken
+
 ###############################################################################
 
 # Scenario 1: Copy page to multiple sites
