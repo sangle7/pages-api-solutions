@@ -5,11 +5,21 @@ import print from './logHelper';
 const { siteId } = config;
 
 // uncomment to activate each example:
-
+GetToken()
 // CopyPageToMultipleSites(/* page id */, [/* site ids */])
 // DeletePageBeforeTargetDate(/* target date*/);
 // PromotePagesAsNews([ /* page ids */]);
 
+
+
+/**
+ * Scenario #0: Get auth token
+ */
+ async function GetToken() {
+  const GraphPages = new GraphPagesAPI(config);
+  const token = await GraphPages.getAuthenticationToken();
+  print.logToken(token);
+}
 
 /**
  * Scenario #1: Copy a page to multiple sites

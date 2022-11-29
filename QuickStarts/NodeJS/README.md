@@ -26,7 +26,7 @@ Follow these steps to register a new application:
 
 6. Under **API permissions**, choose **Add a permission > Microsoft Graph**.
 
-7. Under **Application Permissions**, add the permissions/scopes required for the sample. This sample requires **Sites.ReadWrite.All**
+7. Under **Application Permissions**, add the permissions/scopes required for the sample. This sample requires **Sites.ReadWrite.All**. Grant admin consent to the application.
 
 As the final step in configuring the script, modify the config.ts file in the root folder of your cloned repo.
 ```typescript

@@ -62,17 +62,35 @@ export default class GraphPagesAPI {
    */
   getAuthenticationToken = async (): Promise<{ access_token: string }> => {
     const url = `https://login.microsoftonline.com/${this.tenantId}/oauth2/v2.0/token`;
+    const data = new URLSearchParams();
+    data.append('client_id', this.appId);
+    data.append('client_secret', this.appSecret);
+    data.append('grant_type', 'client_credentials');
+    data.append('scope', 'https://graph.microsoft.com/.default');
     const options = {
       method: 'POST',
-      form: {
-        client_id: this.appId,
-        client_secret: this.appSecret,
-        grant_type: 'client_credentials',
-        scope: 'https://graph.microsoft.com/.default'
-      }
+      body: data
     };
     const res = await fetch(url, options);
     const resBody: { access_token: string } = await res.json();
+    return resBody;
+  }
+
+  getRootSite = async (): Promise<any> => {
+    const url = `${baseUrl}/root`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json;odata.metadata=none',
+        Authorization: `Bearer ${this.token.access_token}`,
+      },
+    };
+    const res = await fetch(url, options);
+    if (res.status !== HTTP_CODE.SUCCESS) {
+      throw new Error(`Error: ${res.status} ${res.statusText}, ${await res.text()}`);
+    }
+    const resBody: any= await res.json();
     return resBody;
   }
 
