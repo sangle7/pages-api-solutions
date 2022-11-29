@@ -25,7 +25,7 @@ Use of these Microsoft Graph SharePoint Pages API PowerShell samples requires th
 * PowerShell v5.0 on Windows 10 x64 (PowerShell v4.0 is a minimum requirement for the scripts to function correctly)
 * Note: For PowerShell 4.0 you will require the [PowershellGet Module for PS 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=51451) to enable the usage of the Install-Module functionality
 * First time usage of these scripts requires a Global Administrator of the Tenant to accept the permissions of the application
-* Azure AD v2 App id (Native Application) from <https://apps.dev.microsoft.com> with `Sites.ReadWrite.All` permissions.
+* Azure AD v2 App id (Native Application) from <https://apps.dev.microsoft.com> with `Sites.ReadWrite.All(Delegated)` permissions.
 * Set `urn:ietf:wg:oauth:2.0:oob` as one of the `redirect_uri` of the App.
 
 ## Getting Started
@@ -46,21 +46,4 @@ The first time you run these scripts you will be asked to provide an account to 
 Please specify your user principal name for Azure Authentication:
 ```
 Once you have provided a user principal name a popup will open prompting for your password. After a successful authentication with Azure Active Directory the user token will last for an hour, once the hour expires within the PowerShell session you will be asked to re-authenticate.
-
-If you are running the script for the first time against your tenant a popup will be presented stating:
-
-Microsoft Intune PowerShell needs permission to:
-
-* Sign you in and read your profile
-* Read all groups
-* Read directory data
-* Read and write Microsoft Intune Device Configuration and Policies (preview)
-* Read and write Microsoft Intune RBAC settings (preview)
-* Perform user-impacting remote actions on Microsoft Intune devices (preview)
-* Sign in as you
-* Read and write Microsoft Intune devices (preview)
-* Read and write all groups
-* Read and write Microsoft Intune configuration (preview)
-* Read and write Microsoft Intune apps (preview)
-Note: If your user account is targeted for device based conditional access your device must be enrolled or compliant to pass authentication.
 

@@ -101,14 +101,12 @@ function Get-AuthToken {
     }
 }
   
-Function Get-Pages($siteId) {
+Function Get-Pages([string]$siteId, [object]$authToken) {
   
     [cmdletbinding()]
   
     $graphApiVersion = "beta"
     $resource = "sites/$siteId/pages"
-
-    $authToken = Get-AuthToken
   
     try {
         $uri = "https://graph.microsoft.com/$graphApiVersion/$($resource)"
@@ -131,14 +129,12 @@ Function Get-Pages($siteId) {
     }
 }
   
-Function Get-Page([string]$siteId, [string]$pageId) {
+Function Get-Page([string]$siteId, [string]$pageId, [object]$authToken) {
     
     [cmdletbinding()]
 
     $rootUrl = "https://canary.graph.microsoft.com/testprodbetapages-api-df/sites"
     $resource = "$($siteId)/pages/$($pageId)?expand=canvasLayout"
-  
-    $authToken = Get-AuthToken
     
     try {
         $uri = "$rootUrl/$($resource)"
@@ -160,13 +156,11 @@ Function Get-Page([string]$siteId, [string]$pageId) {
     }
 }
   
-Function Remove-Page([string]$siteId, [string]$pageId) {
+Function Remove-Page([string]$siteId, [string]$pageId, [object]$authToken) {
     [cmdletbinding()]
     
     $graphApiVersion = "beta"
     $resource = "sites/$($siteId)/pages/$($pageId)"
-  
-    $authToken = Get-AuthToken
     
     try {
         $uri = "https://graph.microsoft.com/$graphApiVersion/$($resource)"
@@ -187,13 +181,11 @@ Function Remove-Page([string]$siteId, [string]$pageId) {
     }
 } 
 
-Function Publish-Page([string]$siteId, [string]$pageId) {
+Function Publish-Page([string]$siteId, [string]$pageId, [object]$authToken) {
     [cmdletbinding()]
     
     $graphApiVersion = "beta"
     $resource = "sites/$($siteId)/pages/$($pageId)/publish"
-  
-    $authToken = Get-AuthToken
     
     try {
         $uri = "https://graph.microsoft.com/$graphApiVersion/$($resource)"
@@ -214,13 +206,11 @@ Function Publish-Page([string]$siteId, [string]$pageId) {
     }
 }
 
-Function Update-Page([string]$siteId, [string]$pageId, [object]$payload) {
+Function Update-Page([string]$siteId, [string]$pageId, [object]$payload, [object]$authToken) {
 
     [cmdletbinding()]
     $rootUrl = "https://canary.graph.microsoft.com/testprodbetapages-api-df/sites"
     $resource = "$($siteId)/pages/$($pageId)"
-  
-    $authToken = Get-AuthToken
     
     try {
         $uri = "$rootUrl/$($resource)"
@@ -241,13 +231,11 @@ Function Update-Page([string]$siteId, [string]$pageId, [object]$payload) {
         break
     }
 }
-Function New-Page([string]$siteId, [object]$payload) {
+Function New-Page([string]$siteId, [object]$payload, [object]$authToken) {
 
     [cmdletbinding()]
     $rootUrl = "https://canary.graph.microsoft.com/testprodbetapages-api-df/sites"
     $resource = "$($siteId)/pages"
-  
-    $authToken = Get-AuthToken
     
     try {
         $uri = "$rootUrl/$($resource)"

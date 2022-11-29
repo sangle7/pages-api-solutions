@@ -10,7 +10,7 @@ See LICENSE in the project root for license information.
 
 # Uncomment to run the samples
 
-# Get Token
+# Scenario 0: Get Token
 
 Get-AuthToken
 
@@ -22,11 +22,12 @@ Get-AuthToken
 # $sourcePageId = "<input your source page id here>"
 # $targetSiteIds = "<input your site id here>", "<another site id>"
 
-# $page = Get-Page -siteId $sourceSiteId -pageId $sourcePageId
+# $authToken = Get-AuthToken
+# $page = Get-Page -siteId $sourceSiteId -pageId $sourcePageId -authToken $authToken 
 # foreach ($siteId in $targetSiteIds) {
 #   $newPage = ConvertTo-Json (ModifyPage $page) -Depth 100 -Compress
-#   $createdPage = New-Page -siteId $siteId -payload $newPage
-#   Publish-Page -siteId $siteId -pageId $createdPage.id
+#   $createdPage = New-Page -siteId $siteId -payload $newPage -authToken $authToken 
+#   Publish-Page -siteId $siteId -pageId $createdPage.id -authToken $authToken 
 # }
 
 ###############################################################################
@@ -36,9 +37,10 @@ Get-AuthToken
 # $siteId = "<input your site id here>"
 # $date = "2000-01-01" # modify this to your target date
 
-# $pages = Get-Pages $siteId | Where-Object { $_.lastModifiedDateTime -lt $date }
+# $authToken = Get-AuthToken
+# $pages = Get-Pages -siteId $siteId -authToken $authToken | Where-Object { $_.lastModifiedDateTime -lt $date }
 # foreach ($page in $pages) {
-#   Remove-Page -siteId $siteId -pageId $page.id
+#   Remove-Page -siteId $siteId -pageId $page.id -authToken $authToken
 # }
 
 ###############################################################################
@@ -54,9 +56,10 @@ Get-AuthToken
 # }
 # "@
 
+# $authToken = Get-AuthToken
 # foreach ($id in $pageIds)
 # {
-#   $result = Update-Page -siteId $siteId  -pageId $id -payload $payload
+#   $result = Update-Page -siteId $siteId  -pageId $id -payload $payload -authToken $authToken
 # }
 
 ###############################################################################
