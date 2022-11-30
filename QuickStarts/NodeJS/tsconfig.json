@@ -19,11 +19,13 @@
       "strict": true, 
       "skipLibCheck": true,
     "baseUrl": "./",
+    "outDir": "./debug",
     "moduleResolution": "node",
+    "sourceMap": true,
     "types": [
       "node"
     ],
-    "module": "CommonJS",
+    "module": "ES2020",
     "target": "esnext"
   }
 }

@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { IConfig } from 'config';
+import { IConfig } from 'config.js';
 
 const baseUrl = "https://graph.microsoft.com/beta/sites";
 
